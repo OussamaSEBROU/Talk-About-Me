@@ -4,11 +4,6 @@ name: Build Android APK
 on:
   push:
     branches: [ main ]
-    paths:
-      - 'src/assets/data/**'
-      - '**.tsx'
-      - '**.ts'
-      - 'package.json'
 
 jobs:
   build:
