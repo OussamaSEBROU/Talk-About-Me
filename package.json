@@ -21,7 +21,7 @@
     "react-native-screens": "^3.25.0",
     "react-native-svg": "^13.14.0",
     "react-native-push-notification": "^8.1.1",
-    "parse-csv": "^1.0.0",
+    "papaparse": "^5.4.1",
     "lucide-react-native": "^0.284.0"
   },
   "devDependencies": {
