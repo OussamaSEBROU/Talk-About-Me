@@ -29,6 +29,14 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v2
 
+      - name: Generate Android Files (if missing)
+        run: |
+          if [ ! -d "android" ]; then
+            npx react-native init TempApp --version 0.72.6 --skip-install
+            mv TempApp/android ./android
+            rm -rf TempApp
+          fi
+
       - name: Build Android Release
         run: |
           cd android
