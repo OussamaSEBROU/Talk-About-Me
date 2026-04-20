@@ -5,12 +5,16 @@ import './src/i18n';
 import { useTranslation } from 'react-i18next';
 import { Colors, Typography } from './src/theme';
 
+import DroneView from './src/components/DroneView';
+import RadiantMap from './src/components/RadiantMap';
+
 const App = () => {
   const { t, i18n } = useTranslation();
   const [isReady, setIsReady] = useState(false);
+  const [showIntro, setShowIntro] = useState(true);
 
   useEffect(() => {
-    // Initial setup (e.g. font loading, data parsing)
+    // Initial setup
     setIsReady(true);
   }, []);
 
@@ -18,6 +22,10 @@ const App = () => {
 
   const currentFont = i18n.language === 'ar' ? Typography.fonts.arabic : Typography.fonts.latin;
   const currentFontBold = i18n.language === 'ar' ? Typography.fonts.arabicBold : Typography.fonts.latinBold;
+
+  if (showIntro) {
+    return <DroneView onComplete={() => setShowIntro(false)} />;
+  }
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
@@ -33,9 +41,7 @@ const App = () => {
         </View>
 
         <View style={styles.content}>
-          <Text style={{ color: Colors.text, textAlign: 'center' }}>
-            3D Radiant Map & Drone Transition Coming Soon...
-          </Text>
+          <RadiantMap data={[]} />
         </View>
 
         <View style={styles.footer}>
